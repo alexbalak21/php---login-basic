@@ -7,3 +7,6 @@ if (isset($_GET['page'])) {
 } else {
     $page = "home";
 }
+if(isset($_GET['logout'])){
+    require_once "logout.php";
+}

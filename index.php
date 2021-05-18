@@ -14,15 +14,15 @@ require_once "components/router.php";
 <body>
     <ul class="nav">
     <?php
-include_once "views/blocks/nav.php";
-
-?>
+    include_once "views/blocks/nav.php";
+    ?>
     </ul>
     <header><h1>HEADER</h1></header>
     <main>
     <?php
-require_once "views/$page.php";
-?>
+    require_once "views/$page.php";
+    ?>
+
     </main>
     <footer><h1>FOOTER</h1></footer>
     <script src="assets/js/script.js"></script>

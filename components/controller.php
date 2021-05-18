@@ -36,6 +36,7 @@ if (isset($_POST['login'])) {
     }
 }
 
+
 function set_cookie($name, $value, $expDays)
 {
     $set = setcookie($name, $value, time() + (86400 * (INT)$expDays), "/");

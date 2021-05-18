@@ -1,6 +1,3 @@
-<?php
-setcookie("user", "", time() - 3600);
-?>
 <div class='center'>
 <h1>You Are Loged Out.</h1>
 <br>
