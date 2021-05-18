@@ -1,7 +1,7 @@
 <div class="login">
 <h1>REGISTER</h1>
 <br>
-<form id="registerForm" action="components/controller.php" method="POST">
+<form id="registerForm" enctype="multipart/form-data" action="components/controller.php" method="POST">
 <label>Username:</label><br>
 <input type="text" name="username"><br>
 <br>

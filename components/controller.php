@@ -3,9 +3,9 @@ require_once "model.php";
 require_once "upload.php";
 if (isset($_POST['register'])) {
     $fileName = 'profile.png';
-    if(isset($_FILES['fileToUpload'])){
-    $error = imgFileUpload();
-    $fileName = $_FILES['uploaded'];
+    if (isset($_FILES['fileToUpload'])) {
+        $error = imgFileUpload();
+        $fileName = $_FILES['uploaded'];
     }
     $username = $_POST['username'];
     $password1 = $_POST['password1'];
@@ -36,9 +36,8 @@ if (isset($_POST['login'])) {
     }
 }
 
-
-
-function set_cookie($name, $value, $expDays){
-    $set = setcookie($name, $value, time() + (86400 *(INT)$expDays), "/");
+function set_cookie($name, $value, $expDays)
+{
+    $set = setcookie($name, $value, time() + (86400 * (INT)$expDays), "/");
     return $set;
 }
