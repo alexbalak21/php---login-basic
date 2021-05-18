@@ -1,17 +1,19 @@
 <?php
 require_once "model.php";
 require_once "upload.php";
+
 if (isset($_POST['register'])) {
-    $fileName = 'profile.png';
-    if (isset($_FILES['fileToUpload'])) {
+
+    $img = 'profile.png';
+    if (!empty($_FILES['fileToUpload']['name'])) {
         $error = imgFileUpload();
-        $fileName = $_FILES['uploaded'];
+        $img = $_FILES['uploaded'];
     }
     $email = $_POST['email'];
     $password1 = $_POST['password1'];
     $password2 = $_POST['password2'];
     if ($password1 == $password2) {
-        $id = registerUser($email, $password1, $fileName);
+        $id = registerUser($email, $password1, $img);
         if ($id > 0) {
             header("Location: ../index.php?page=login");
         }
@@ -35,7 +37,6 @@ if (isset($_POST['login'])) {
         header("Location: ../index.php?page=profile");
     }
 }
-
 
 function set_cookie($name, $value, $expDays)
 {

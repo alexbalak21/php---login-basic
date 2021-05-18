@@ -1,6 +1,9 @@
 <?php
 function imgFileUpload()
 {
+    if (empty($_FILES['fileToUpload']['name'])) {
+        return 'profile.png';
+    }
 
     $error = 0;
     $target_dir = "../public/profile/img/";
