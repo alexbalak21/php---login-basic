@@ -1,7 +1,6 @@
-<div class="login">
-<h1>REGISTER</h1>
-<br>
-<form id="registerForm" action="components/controller.php" method="POST">
+<div class='updateProfile'>
+    <h1>Upade Profile</h1>
+    <form id="registerForm" action="components/controller.php" method="POST">
 <label>Username:</label><br>
 <input type="text" name="username"><br>
 <br>
@@ -13,10 +12,9 @@
 <br>
 <label>You can upload a profile image:</label><br><br>
 <input type="file" name="fileToUpload"><br><br>
-<input type="hidden" name="register"><br>
+<input type="hidden" name="updateProfile"><br>
 <input type="submit" name="RegForm" value="REGISTER"><br>
 <br>
 <p id="warning"></p>
 </form>
 </div>
-<script src="assets/js/register.js"></script>

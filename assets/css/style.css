@@ -73,3 +73,11 @@ main > * {
 #warning {
   color: red;
 }
+
+.profileImg {
+  height: 100px;
+  width: 100px;
+}
+.profile {
+  text-align: center;
+}

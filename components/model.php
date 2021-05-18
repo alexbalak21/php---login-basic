@@ -20,20 +20,21 @@ function db_connect()
 }
 
 // CREATE USER
-function registerUser($username, $password)
+function registerUser($username, $password, $img="profile.png")
 {
     $passHash = password_hash($password, PASSWORD_DEFAULT);
     db_connect();
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO `users` (`username`, `password`) VALUES (:username, :passHash)");
+    $stmt = $pdo->prepare("INSERT INTO `users` (`username`, `password`, `img`) VALUES (:username, :passHash, :img)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':passHash', $passHash);
+    $stmt->bindParam(':img', $img);
     $done = $stmt->execute();
     $last_id = $pdo->lastInsertId();
     $pdo = null;
     return $last_id;
 }
-
+//CHECK USER LOGIN
 function checkUserPass($username, $password)
 {
     db_connect();
@@ -48,9 +49,9 @@ function checkUserPass($username, $password)
     }
     $passHash = $data['password'];
     if (password_verify($password, $passHash)) {
-        $data['password'] = null;
+        unset($data['password']);
+        $data['connected'] = "TRUE";
         $pdo = null;
-        echo 'CONNECTED';
         return $data;
     } else {
         $data = null;

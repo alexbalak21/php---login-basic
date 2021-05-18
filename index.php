@@ -14,16 +14,18 @@ require_once "components/router.php";
 <body>
     <ul class="nav">
       <li><a href="index.php">Home</a></li>
+
       <li><a href="#">LINK</a></li>
       <li><a href="">LINK</a></li>
+      <li><a href="?page=profile">Profile</a></li>
       <li id="nav-right"><a id="registerLink" href="?page=register">Register</a></li>
       <li id="nav-right"><a id="loginLink" href="?page=login">Login</a></li>
     </ul>
     <header><h1>HEADER</h1></header>
     <main>
     <?php
-require_once "views/$page.php";
-?>
+    require_once "views/$page.php";
+    ?>
     </main>
     <footer><h1>FOOTER</h1></footer>
     <script src="assets/js/script.js"></script>
