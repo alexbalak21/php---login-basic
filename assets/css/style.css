@@ -85,3 +85,7 @@ main > * {
 .center {
   text-align: center;
 }
+
+.inputError {
+  border: 2px solid red;
+}

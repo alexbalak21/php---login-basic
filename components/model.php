@@ -7,11 +7,11 @@ function db_connect()
 {
     global $pdo;
     $servername = "localhost";
-    $username = "admin";
+    $email = "admin";
     $password = "root";
     $db_name = "test";
     try {
-        $pdo = new PDO("mysql:host=$servername;dbname=$db_name", $username, $password);
+        $pdo = new PDO("mysql:host=$servername;dbname=$db_name", $email, $password);
         // set the PDO error mode to exception
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
@@ -20,13 +20,13 @@ function db_connect()
 }
 
 // CREATE USER
-function registerUser($username, $password, $img="profile.png")
+function registerUser($email, $password, $img="profile.png")
 {
     $passHash = password_hash($password, PASSWORD_DEFAULT);
     db_connect();
     global $pdo;
-    $stmt = $pdo->prepare("INSERT INTO `users` (`username`, `password`, `img`) VALUES (:username, :passHash, :img)");
-    $stmt->bindParam(':username', $username);
+    $stmt = $pdo->prepare("INSERT INTO `users` (`email`, `password`, `img`) VALUES (:email, :passHash, :img)");
+    $stmt->bindParam(':email', $email);
     $stmt->bindParam(':passHash', $passHash);
     $stmt->bindParam(':img', $img);
     $done = $stmt->execute();
@@ -35,12 +35,12 @@ function registerUser($username, $password, $img="profile.png")
     return $last_id;
 }
 //CHECK USER LOGIN
-function checkUserPass($username, $password)
+function checkUserPass($email, $password)
 {
     db_connect();
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username=:username");
-    $stmt->bindValue(':username', $username);
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE email=:email");
+    $stmt->bindValue(':email', $email);
     $stmt->execute();
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $data = $stmt->fetch();

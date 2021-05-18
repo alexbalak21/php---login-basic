@@ -2,8 +2,8 @@
 <h1>REGISTER</h1>
 <br>
 <form id="registerForm" enctype="multipart/form-data" action="components/controller.php" method="POST">
-<label>Username:</label><br>
-<input type="text" name="username"><br>
+<label>email:</label><br>
+<input type="text" name="email"><br>
 <br>
 <label>Password:</label><br>
 <input type="password" name="password1"><br>

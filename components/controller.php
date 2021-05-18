@@ -7,20 +7,20 @@ if (isset($_POST['register'])) {
         $error = imgFileUpload();
         $fileName = $_FILES['uploaded'];
     }
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password1 = $_POST['password1'];
     $password2 = $_POST['password2'];
     if ($password1 == $password2) {
-        $id = registerUser($username, $password1, $fileName);
+        $id = registerUser($email, $password1, $fileName);
         if ($id > 0) {
             header("Location: ../index.php?page=login");
         }
     }
 }
 if (isset($_POST['login'])) {
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
-    $result = checkUserPass($username, $password);
+    $result = checkUserPass($email, $password);
     if ($result == 'NOUSER') {
         header("Location: ../index.php?page=login&error=NOUSER");
     }

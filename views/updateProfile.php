@@ -1,8 +1,8 @@
 <div class='updateProfile'>
     <h1>Upade Profile</h1>
     <form id="registerForm" action="components/controller.php" method="POST">
-<label>Username:</label><br>
-<input type="text" name="username"><br>
+<label>email:</label><br>
+<input type="text" name="email"><br>
 <br>
 <label>Password:</label><br>
 <input type="password" name="password1"><br>
